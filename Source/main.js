@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const SteamAPI = require('steamapi');
 const steam = new SteamAPI(process.env.steamToken);
-var userStats = new SteamApi.UserStats('steam-api-key');
+var userStats = new SteamApi.UserStats(process.env.steamToken);
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
