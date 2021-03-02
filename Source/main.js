@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const SteamAPI = require('steamapi');
-const steam = new SteamAPI(process.env.steamToken);
-var userStats = new steam.UserStats(process.env.steamToken);
+const steam = new SteamAPI('DD20123A1744482B39CAEB8088AF5468');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
@@ -17,9 +16,12 @@ client.on('message', async message =>{
 
     if(command === 'players')
     {
-        userStats.GetNumberOfCurrentPlayers(939510).done(function(result){
-            console.log(result);
-        });
+        console.log('getGamePlayers');
+        try{
+	    await steam.getGamePlayers(939510).then(inspect);
+        } catch (error) {
+            message.channel.send("NOOOOOOOOPE");
+        }
     };
 });
 client.login(process.env.token);
