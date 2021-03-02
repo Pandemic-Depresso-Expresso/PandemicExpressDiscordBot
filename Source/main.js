@@ -16,9 +16,9 @@ client.on('message', async message =>{
 
     if(command === 'players')
     {
-        console.log('getGamePlayers');
         try{
-	    await steam.getGamePlayers(939510).then(inspect);
+            message.channel.send('getGamePlayers')
+	        await steam.getGamePlayers('939510').then(inspect);
         } catch (error) {
             message.channel.send("NOOOOOOOOPE");
         }
