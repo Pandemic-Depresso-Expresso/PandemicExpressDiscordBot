@@ -14,7 +14,7 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'players')
+    if(command === 'players' && message.author.id === "776852904983396412")
     {
         try{
             message.channel.send('getGamePlayers');
