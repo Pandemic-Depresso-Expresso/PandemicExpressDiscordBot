@@ -14,10 +14,10 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'players' && message.author.id === "776852904983396412")
+    if(command === 'players')
     {
         try{
-            message.channel.send('getGamePlayers');
+            message.channel.send('Fetching number of online players: ');
 	        var Players = await steam.getGamePlayers('939510');
             message.channel.send(Players);
         } catch (error) {
