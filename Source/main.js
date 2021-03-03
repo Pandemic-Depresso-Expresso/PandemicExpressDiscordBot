@@ -17,12 +17,16 @@ client.on('message', async message =>{
     if(command === 'players')
     {
         try{
-            message.channel.send('Fetching number of online players: ');
+            // message.channel.send('Fetching number of online players: ');
 	        var Players = await steam.getGamePlayers('939510');
-            message.channel.send(Players);
+            message.channel.send(Players + " people are playing Pandemic Express");
         } catch (error) {
-            message.channel.send(error);
+            console.log(error);
         }
     };
+    if(command === 'changes'){
+        message.channel.send('https://steamdb.info/app/939510/history/')
+    };
+    console.log(message)
 });
 client.login(process.env.token);
