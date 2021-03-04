@@ -20,6 +20,7 @@ client.on('message', async message =>{
             // message.channel.send('Fetching number of online players: ');
 	        var Players = await steam.getGamePlayers('939510');
             message.channel.send(Players + " people are playing Pandemic Express");
+            client.user.setActivity(Players + " players"); 
         } catch (error) {
             console.log(error);
         }
@@ -28,5 +29,9 @@ client.on('message', async message =>{
         message.channel.send('https://steamdb.info/app/939510/history/')
     };
     console.log(message)
+    if(command === 'status' && message.author.id === '776852904983396412')
+    {
+        client.user.setActivity(args);
+    }
 });
 client.login(process.env.token);
